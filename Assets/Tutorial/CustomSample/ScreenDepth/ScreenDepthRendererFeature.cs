@@ -25,6 +25,7 @@ public class ScreenDepthRendererFeature : ScriptableRendererFeature
 
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
     {
+        SetupRenderPasses(renderer, renderingData);
         renderer.EnqueuePass(renderPass);
     }
 }

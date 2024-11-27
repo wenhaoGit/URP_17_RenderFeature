@@ -2,15 +2,17 @@
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-public class CustomRendererFeature : ScriptableRendererFeature
+public class DrawObjectsRendererFeature : ScriptableRendererFeature
 {
-    private CustomRenderPass renderPass;
+    private DrawObjectsRenderPass renderPass;
 
+    public Material overrideMaterial;
+    public LayerMask filterLayerMask;
 
     public override void Create()
     {
-        renderPass = new CustomRenderPass();
-        renderPass.Init();
+        renderPass = new DrawObjectsRenderPass();
+        renderPass.Init(overrideMaterial, filterLayerMask);
     }
 
     public override void SetupRenderPasses(ScriptableRenderer renderer, in RenderingData renderingData)
